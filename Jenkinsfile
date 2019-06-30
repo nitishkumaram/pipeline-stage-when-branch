@@ -1,22 +1,18 @@
+// 
+//  L18. Pipeline stage when changeRequest
+
 pipeline{
-    agent any
+    agent any{
 
-    stages{
-        stage('Build Master'){
-            when{
-                branch 'master'
-            }
-            steps{
-                echo "====++++Building master++++===="
-            }
-        }
+        stages{
+            stage('Build'){
+                when{
+                    changeRequest()
+                }
 
-        stage('Build Dev'){
-            when{
-                branch 'dev'
-            }
-            steps{
-                echo "====++++Building Dev++++===="
+                steps{
+                    echo "====++++Hello World Changing Request++++===="
+                }
             }
         }
     }
