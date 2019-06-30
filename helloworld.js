@@ -1,1 +1,3 @@
-Some JS Code 3
+{
+    
+}
