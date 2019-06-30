@@ -22,19 +22,38 @@
 //     }
 // }
 
-//  Pipeline stage when changelog
+//  L17. Pipeline stage when changelog
+
+// pipeline{
+//     agent any
+
+//     stages{
+//         stage('Build'){
+//             when{
+//                 changelog '.*some_text.*'
+//             }
+
+//             steps{
+//                 echo "====++++Hello World Changelog++++===="
+//             }
+//         }
+//     }
+// }
+
+//  L18. Pipeline stage when changeRequest
 
 pipeline{
-    agent any
+    agent any{
 
-    stages{
-        stage('Build'){
-            when{
-                changelog '.*some_text.*'
-            }
+        stages{
+            stage('Build'){
+                when{
+                    changeRequest()
+                }
 
-            steps{
-                echo "====++++Hello World Changelog++++===="
+                steps{
+                    echo "====++++Hello World Changing Request++++===="
+                }
             }
         }
     }
