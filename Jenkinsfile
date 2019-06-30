@@ -43,7 +43,7 @@
 //  L18. Pipeline stage when changeRequest
 
 pipeline{
-    agent any{
+    agent any
 
         stages{
             stage('Build'){
@@ -56,5 +56,4 @@ pipeline{
                 }
             }
         }
-    }
 }
