@@ -42,18 +42,36 @@
 
 //  L18. Pipeline stage when changeRequest
 
+// pipeline{
+//     agent any
+
+//         stages{
+//             stage('Build'){
+//                 when{
+//                     changeRequest()
+//                 }
+
+//                 steps{
+//                     echo "====++++Hello World Changing Request++++===="
+//                 }
+//             }
+//         }
+// }
+
+//  L19. Pipeline stage when changeset
+
 pipeline{
     agent any
 
-        stages{
-            stage('Build'){
-                when{
-                    changeRequest()
-                }
+    stages{
+        stage('Build'){
+            when{
+                changeset glob: "*.js"
+            }
 
-                steps{
-                    echo "====++++Hello World Changing Request++++===="
-                }
+            steps{
+                echo "====++++Hello World when change set++++===="
             }
         }
+    }
 }
