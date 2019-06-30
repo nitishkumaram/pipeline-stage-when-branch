@@ -1,22 +1,40 @@
+// pipeline{
+//     agent any
+
+//     stages{
+//         stage('Build Master'){
+//             when{
+//                 branch 'master'
+//             }
+//             steps{
+//                 echo "====++++Building master++++===="
+//             }
+//         }
+
+//         stage('Build Dev'){
+//             when{
+//                 branch 'dev'
+//             }
+//             steps{
+//                 echo "====++++Building Dev++++===="
+//             }
+//         }
+//     }
+// }
+
+//  Pipeline stage when changelog
+
 pipeline{
     agent any
 
     stages{
-        stage('Build Master'){
+        stage('Build'){
             when{
-                branch 'master'
+                changelog '.*some_text.*'
             }
-            steps{
-                echo "====++++Building master++++===="
-            }
-        }
 
-        stage('Build Dev'){
-            when{
-                branch 'dev'
-            }
             steps{
-                echo "====++++Building Dev++++===="
+                echo "====++++Hello World Changelog++++===="
             }
         }
     }
